@@ -4,7 +4,7 @@ HNGx is a internship program tailored in sharping upcoming dev with little or mo
 # Content
 | Projects | Task |
 |----------|------|
-| Stage-One|Host and Create Endpoint with public access|
+| Stage-One |Host and Create Endpoint with public access|
 
 # Author
-[iyk faiz ] (https://www.linkedin.com/in/ikechukwu-godwin-511520249)
+[iyk Faiz](https://www.linkedin.com/in/ikechukwu-godwin-511520249)
