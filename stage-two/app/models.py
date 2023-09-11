@@ -2,7 +2,7 @@
 from . import db
 
 class Person(db.Model):
-    id = db.Column(db.Interge(), primary_key=True, nullable=False)
+    id = db.Column(db.Integer(), primary_key=True, nullable=False)
     name = db.Column(db.String(100), nullable=False)
 
     def to_dict(self):

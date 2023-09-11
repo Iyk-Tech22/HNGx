@@ -15,8 +15,11 @@ def create_app(config=Config):
     app = Flask(__name__)
     app.config.from_object(config)
     
+    from app.api import bp as api_bp
+    app.register_blueprint(blueprint=api_bp, url_prefix="/api")
+
     db.init_app(app)
     migrate.init_app(app, db)
     return app
 
-import models, persons
+from . import models
