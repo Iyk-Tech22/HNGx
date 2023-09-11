@@ -18,7 +18,5 @@ class Person(db.Model):
         if data:
             if "name" in data:
                 setattr(self, "name", data["name"])
-                db.session.add(self)
-                db.session.commit()
         
             

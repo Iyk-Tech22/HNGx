@@ -13,6 +13,10 @@ migrate = Migrate()
 def create_app(config=Config):
     """ Application Factory """
     app = Flask(__name__)
+    app.config.from_object(config)
     
     db.init_app(app)
     migrate.init_app(app, db)
+    return app
+
+import models, persons
