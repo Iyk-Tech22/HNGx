@@ -1,6 +1,5 @@
 from app.api import bp
 from flask import current_app
 
-@bp.route("/")
-def index():
-    return "Hello World"
+@bp.route("/users")
+de
