@@ -75,10 +75,10 @@ def delete_request(id=1):
 
 def run_test():
     """ Execute the script """
-    get_request(2)
-    #post_request()
-    #put_request({"name":"love"}, 2)
-    delete_request(2)
+    post_request()
+    get_request()
+    put_request()
+    delete_request()
 
 if __name__ == "__main__":
     run_test()
