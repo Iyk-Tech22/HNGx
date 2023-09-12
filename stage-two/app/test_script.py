@@ -10,19 +10,19 @@ def get_request(id=1):
         response = requests.get(url=ENDPOINT)
         response.raise_for_status()
     except:
-        return
-    print(response.json())
-    return response.status_code
-
+        print("TEST FAILED...")
+    print(response.json(), response.status_code)
+    return 
+    
 def post_request(data={"name":"mark"}):
     """ Test Post request """
     try:
         response = requests.post(url=ENDPOINT, data=data)
         response.raise_for_status()
     except:
-        return
-    print(response.json())
-    return response.status_code
+        print("TEST FAILED...")
+    print(response.json(), response.status_code)
+    return 
 
 def put_request(data={"name":"cally"}, id=1):
     """ Test PUT request """
@@ -32,9 +32,9 @@ def put_request(data={"name":"cally"}, id=1):
         response = requests.put(url=ENDPOINT, data=data)
         response.raise_for_status()
     except:
-        return
-    print(response.json())
-    return response.status_code
+        print("TEST FAILED...")
+    print(response.json(), response.status_code)
+    return 
     
 def delete_request(id=1):
     """ Test DELETE request """
@@ -43,8 +43,9 @@ def delete_request(id=1):
         response = requests.delete(url=ENDPOINT)
         response.raise_for_status()
     except:
-        return "FAILED"
-    return response.status_code
+        print("TEST FAILED...")
+    print(response.json(), response.status_code)
+    return 
 
 def run_test():
     """ Execute the script """
