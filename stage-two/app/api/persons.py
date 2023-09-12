@@ -6,10 +6,14 @@ from app import db
 @bp.route("/<int:id>", methods=["GET"])
 def get_person(id):
     """ Handle GET requests """
+    
     person = Person.query.get(id)
     if person:
-        return jsonify(person.to_dict())
-    return
+        response = jsonify(person.to_dict())
+        return response
+    response = jsonify({"errror": "user not found", "status":401})
+    response.status_code = 401
+    return response
 
 @bp.route("", methods=["POST"])
 def create_person():
@@ -17,9 +21,12 @@ def create_person():
     try:
         person = Person()
         data = request.json
+        print(data)
         person.from_dict(data)
-    except:
-        return
+    except KeyError:
+       response = jsonify({"errror": "request data missing", "status":400})
+       response.status_code = 400
+       return response
     else:
         db.session.add(person)
         db.session.commit()
@@ -32,12 +39,16 @@ def update_person(id):
     """ Handle PUT requests """
     person = Person.query.get(id)
     if not person:
-        return
+        response = jsonify({"errror": "user not found", "status":401})
+        response.status_code = 401
+        return response
     try:
         data = request.json
         person.from_dict(data)
     except:
-        return
+        response = jsonify({"errror": "request data missing", "status":400})
+        response.status_code = 400
+        return response
     db.session.commit()
     return jsonify(person.to_dict())
 
@@ -46,7 +57,9 @@ def delete_person(id):
     """ Handles DELETE requests """
     person = Person.query.get(id)
     if not person:
-        return
+        response = jsonify({"errror": "user not found", "status":401})
+        response.status_code = 401
+        return response
     db.session.delete(person)
     db.session.commit()
     return "", 204
