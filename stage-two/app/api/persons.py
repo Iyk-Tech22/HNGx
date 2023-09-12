@@ -24,7 +24,7 @@ def create_person():
         print(data)
         person.from_dict(data)
     except KeyError:
-       response = jsonify({"errror": "request data missing", "status":400})
+       response = jsonify({"errror": "invalid data", "status":400})
        response.status_code = 400
        return response
     else:
@@ -46,7 +46,7 @@ def update_person(id):
         data = request.json
         person.from_dict(data)
     except:
-        response = jsonify({"errror": "request data missing", "status":400})
+        response = jsonify({"errror": "invalid data", "status":400})
         response.status_code = 400
         return response
     db.session.commit()
