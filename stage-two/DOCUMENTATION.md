@@ -12,7 +12,7 @@
 
 #### Request
 ```
-   GET: http://hngx-2.iyktech.tech/api/user_id => int
+   GET:http://hngx-2.iyktech.tech/api/user_id => int
 ```
 
 #### Response
@@ -37,7 +37,7 @@ Status_Code: 200
 
 #### Request
 ```
-   POST: http://hngx- 2.iyktech.tech/api
+   POST:http://hngx- 2.iyktech.tech/api
 ```
 ##### Request Body
 ```
@@ -69,7 +69,7 @@ Status_Code: 201
 
 #### Request
 ```
-   PUT: http://hngx-2.iyktech.tech/api/user_id => int
+   PUT:http://hngx-2.iyktech.tech/api/user_id => int
 ```
 
 #### Request Body
@@ -98,7 +98,7 @@ Status_Code: 200
 ### DELETE Endpoint
 #### Request
 ```
-GET: http://hngx-2.iyktech.tech/api/user_id => int
+DELETE:http://hngx-2.iyktech.tech/api/user_id => int
 ```
 #### Response
 Status_Code: 200
