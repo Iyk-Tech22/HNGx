@@ -129,12 +129,12 @@ GET: http://hngx-2.iyktech.tech/api/user_id => int
 ##### Response
 Status_Code: 200
 ##### HTTP Error
-````
+```
 {
   error:msg,
   status:code
 }
-````
+```
 ## Environment Setup
 ### tools
 - flask
@@ -143,13 +143,13 @@ Status_Code: 200
 - requests
 - python-dotenv
 To run this program you have to create Python virtual environment which can be down with the command below:
-````
+```
 $ python3 -m venv venv
-````
+```
 Activate the venv you created
 with the cmd below:
 On Linux:
-````
+```
 $ source venv/bin/activate
 ```
 On wins:
@@ -166,7 +166,8 @@ with is cmd:
 ```
 pip install -r requirements.txt
 ```
-## UML Link
+
+### UML Link
 [UML File](https://lucid.app/documents/view/3c6d8e0a-6a21-41c1-b796-ade78083b008)
 
 
