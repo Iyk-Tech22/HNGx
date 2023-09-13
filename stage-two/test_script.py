@@ -2,8 +2,7 @@
 import os
 import requests
 
-DB_FILE = "db.sqlite"
-ENDPOINT = "http://localhost:8000/api"
+ENDPOINT = "http://hngx-2.iyktech.tech/api"
 
 def get_request(id=1):
     """ 
