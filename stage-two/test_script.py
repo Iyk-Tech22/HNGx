@@ -20,7 +20,7 @@ def get_request(id=1):
         print("GET TEST FAILED...")
         #print(response.json()) 
         return
-    print(response.json(), response.status_code)
+    print(response.json(), response.status_code, "GET")
     return 
     
 def post_request(data={"name":"mark"}):
@@ -29,7 +29,7 @@ def post_request(data={"name":"mark"}):
         takes one arg the user data.
         to create
     """
-    
+                
     try:
         response = requests.post(url=ENDPOINT, json=data)
         response.raise_for_status()
@@ -37,13 +37,13 @@ def post_request(data={"name":"mark"}):
         print("CREATE TEST FAILED...")
         #print(response.json())
         return
-    print(response.json(), response.status_code)
-    return 
+    print(response.json(), response.status_code, "POST")
+    return response.json()["id"]
 
 def put_request(data={"name":"cally"}, id=1):
     """ 
        Test PUT request, takes two args
-       first arg the data to be use for update
+       first arg the data to be use for update  
        second arg the id of the user. 
     """
 
@@ -55,13 +55,13 @@ def put_request(data={"name":"cally"}, id=1):
         print("UPDATE TEST FAILED...")
         #print(response.json())
         return
-    print(response.json(), response.status_code)
+    print(response.json(), response.status_code, "PUT")
     return 
     
 def delete_request(id=1):
     """ 
         Test DELETE request, takes in the
-        id of the user as an arg 
+        id of the user as an arg    
     """
     
     endpoint = f"{ENDPOINT}/{id}"
@@ -72,21 +72,15 @@ def delete_request(id=1):
         print("DELETE TEST FAILED...")
         #print(response.json())
         return
-    print(response.status_code)
+    print(response.status_code, "DELETE")
     return 
 
 def run_test():
     """ Execute the script """
-    abspath = os.path.abspath(os.path.dirname(__file__))
-    filepath = os.path.join(abspath, f"app/{DB_FILE}")
-    if os.path.isfile(filepath):
-        os.system(f"rm {filepath}")
-    os.system("flask db upgrade")
-
-    post_request()
-    get_request()
-    put_request()
-    delete_request()
+    id = post_request()
+    get_request(id)
+    put_request({"name":"testname"}, id)
+    delete_request(id)
 
 if __name__ == "__main__":
     run_test()
