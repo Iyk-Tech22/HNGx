@@ -22,6 +22,18 @@
      name:str
    }
 ```
+
+#### Sample
+```
+   curl -X GET http://hngx-2.iyktech.tech/api/1
+```
+
+```
+   {
+      "id":1,
+      "name":"Mark Essien"
+   }
+```
 Content_Type: application/json
 Status_Code: 200
 
@@ -39,6 +51,7 @@ Status_Code: 200
 ```
    POST:http://hngx- 2.iyktech.tech/api
 ```
+
 ##### Request Body
 ```
   {
@@ -54,6 +67,19 @@ Content_Type: application/json
      name:str
    }
 ```
+
+#### Sample
+```
+   curl -X POST -H "Content-Type: application/json" -d '{"name":"John Doe"}' http://hngx-2.iyktech.tech/api
+```
+
+```
+   {
+     "id":2,
+     "name":"John Doe"
+   }
+```
+
 Content_Type: application/json
 Status_Code: 201
 
@@ -78,6 +104,7 @@ Status_Code: 201
     name: str
   }
 ```
+
 Content_Type: application/json
 #### Response
 ```
@@ -85,6 +112,18 @@ Content_Type: application/json
   id:int,
   name:str
 }
+```
+
+#### Sample
+```
+   curl -X PUT -H "Content-Type: application/json" -d '{"name":"Mary Doe"}' http://hngx-2.iyktech.tech/api/2
+```
+
+```
+   {
+     "id":2,
+     "name":"Mary Doe"
+   }
 ```
 Content_Type: application/json
 Status_Code: 200
@@ -96,12 +135,14 @@ Status_Code: 200
 }
 ```
 ### DELETE Endpoint
+
 #### Request
 ```
 DELETE:http://hngx-2.iyktech.tech/api/user_id => int
 ```
 #### Response
 Status_Code: 200
+
 #### HTTP Error
 ```
 {
@@ -109,6 +150,11 @@ Status_Code: 200
   status:code
 }
 ```
+#### Sample
+```
+   curl -X GET http://hngx-2.iyktech.tech/api/1
+```
+
 # Environment Setup
 ## tools
 - flask
