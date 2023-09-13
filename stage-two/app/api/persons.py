@@ -11,8 +11,8 @@ def get_person(id):
     if person:
         response = jsonify(person.to_dict())
         return response
-    response = jsonify({"errror": "user not found", "status":401})
-    response.status_code = 401
+    response = jsonify({"errror": "user not found", "status":404})
+    response.status_code = 404
     return response
 
 @bp.route("", methods=["POST"])
@@ -39,8 +39,8 @@ def update_person(id):
     """ Handle PUT requests """
     person = Person.query.get(id)
     if not person:
-        response = jsonify({"errror": "user not found", "status":401})
-        response.status_code = 401
+        response = jsonify({"errror": "user not found", "status":404})
+        response.status_code = 404
         return response
     try:
         data = request.json
@@ -57,8 +57,8 @@ def delete_person(id):
     """ Handles DELETE requests """
     person = Person.query.get(id)
     if not person:
-        response = jsonify({"errror": "user not found", "status":401})
-        response.status_code = 401
+        response = jsonify({"errror": "user not found", "status":404})
+        response.status_code = 404
         return response
     db.session.delete(person)
     db.session.commit()
