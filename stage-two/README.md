@@ -46,8 +46,8 @@ Host the api and make it publicly available.
    {
      id:int,
      name:str
-}
-   ```
+   }
+```
 Content_Type: application/json
 Status_Code: 200
 
@@ -55,7 +55,7 @@ Status_Code: 200
 ```
    {
      error:msg,
-  status:code
+     status:code
    }
 ```
 
