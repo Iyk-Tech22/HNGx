@@ -1,7 +1,9 @@
 """ This script automate action of performing CRUD operation an endpoint """
+import os
 import requests
 
-ENDPOINT = "http://localhost:5000/api"
+DB_FILE = "db.sqlite"
+ENDPOINT = "http://localhost:8000/api"
 
 def get_request(id=1):
     """ 
@@ -75,6 +77,12 @@ def delete_request(id=1):
 
 def run_test():
     """ Execute the script """
+    abspath = os.path.abspath(os.path.dirname(__file__))
+    filepath = os.path.join(abspath, f"app/{DB_FILE}")
+    if os.path.isfile(filepath):
+        os.system(f"rm {filepath}")
+    os.system("flask db upgrade")
+
     post_request()
     get_request()
     put_request()

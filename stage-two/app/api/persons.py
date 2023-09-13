@@ -23,7 +23,7 @@ def create_person():
         data = request.json
         print(data)
         person.from_dict(data)
-    except KeyError:
+    except:
        response = jsonify({"errror": "invalid data", "status":400})
        response.status_code = 400
        return response
