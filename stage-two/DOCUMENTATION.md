@@ -162,6 +162,7 @@ Status_Code: 200
 - flask_migrate
 - requests
 - python-dotenv
+  
 To run this program you have to create Python virtual environment which can be down with the command below:
 ```
 $ python3 -m venv venv
